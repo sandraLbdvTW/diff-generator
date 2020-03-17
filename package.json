@@ -12,6 +12,7 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sandraLbdv/frontend-project-lvl2.git"
@@ -23,7 +24,8 @@
   },
   "homepage": "https://github.com/sandraLbdv/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^5.0.0"
+    "commander": "^5.0.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
