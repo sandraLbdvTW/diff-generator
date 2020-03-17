@@ -1,6 +1,6 @@
 import genDiff from '..';
 
-test("json gendiff", () => {
+test('json gendiff', () => {
   expect(genDiff('before.json', 'after.json')).toEqual(`{
   host: hexlet.io
 - timeout: 50
@@ -8,8 +8,8 @@ test("json gendiff", () => {
 - proxy: 123.234.53.22
 - follow: false
 + verbose: true
-}`)
-  expect(() => {genDiff('', '')}).toThrow();
-  expect(() => {genDiff('nonexistentFile', '')}).toThrow();
-  expect(() => {genDiff('before.json')}).toThrow();
+}`);
+  expect(() => genDiff('', '')).toThrow();
+  expect(() => genDiff('nonexistentFile', '')).toThrow();
+  expect(() => genDiff('before.json')).toThrow();
 });
