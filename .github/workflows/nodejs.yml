@@ -1,34 +1,35 @@
 name: Node CI
 
-# События, на которые нужно запускать экшен
 on:
   - push
+  - pull_request
 
 jobs:
   build:
 
-    # Образ c ОС, который используется для запуска приложения
     runs-on: ubuntu-latest
 
     strategy:
-      # Перечисляем версии nodejs
       matrix:
         node-version: [13.x]
 
     steps:
-        # Используем экшен для извления содержимого репозитория
-        # https://github.com/actions/checkout
       - uses: actions/checkout@v2
-        # Имя задачи (шага)
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install, build
+        run: |
+          make install
+          make build
+        env:
+          CI: true
       - name: Run linter
-        # Запускаем линтер
         run: |
           make lint
       - name: Test & publish code coverage
-        # Публикуем code coverage на Code Climate
-        # https://github.com/paambaati/codeclimate-action
         uses: paambaati/codeclimate-action@v2.4.0
-        # Добавляем секретный ключ для поключения к Code Climate
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
