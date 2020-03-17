@@ -22,6 +22,7 @@ jobs:
       - name: npm install, build
         run: |
           make install
+          make publish
         env:
           CI: true
       - name: Run linter
