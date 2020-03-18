@@ -5,7 +5,7 @@ import parse from './parsers';
 
 const readFile = (filePath) => {
   const fullFilePath = path.resolve(process.cwd(), filePath);
-  const data = fs.readFileSync(fullFilePath);
+  const data = fs.readFileSync(fullFilePath, 'utf-8');
   return data;
 };
 

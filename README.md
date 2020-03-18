@@ -7,3 +7,5 @@
 .yml diff:
 [![asciicast](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt.svg)](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt)
 
+.ini diff:
+[![asciicast](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y.svg)](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y)

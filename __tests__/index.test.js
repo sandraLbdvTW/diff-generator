@@ -30,3 +30,13 @@ test('yml gendiff', () => {
   expect(() => genDiff('nonexistentFile', '')).toThrow();
   expect(() => genDiff(before)).toThrow();
 });
+
+test('ini gendiff', () => {
+  const before = getFixturePath('before.ini');
+  const after = getFixturePath('after.ini');
+
+  expect(genDiff(before, after)).toEqual(expectedDiff);
+  expect(() => genDiff('', '')).toThrow();
+  expect(() => genDiff('nonexistentFile', '')).toThrow();
+  expect(() => genDiff(before)).toThrow();
+});
