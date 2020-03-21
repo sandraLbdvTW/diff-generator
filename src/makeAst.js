@@ -18,13 +18,6 @@ const getChildren = (value1, value2, fn) => {
   return [];
 };
 
-const stringify = (value) => {
-  if (value === undefined) {
-    return '';
-  }
-  return JSON.stringify(value).replace(/"/g, '');
-};
-
 const makeAst = (data1, data2) => {
   const keys1 = typeof data1 === 'object' ? Object.keys(data1) : [];
   const keys2 = typeof data2 === 'object' ? Object.keys(data2) : [];
@@ -37,8 +30,8 @@ const makeAst = (data1, data2) => {
     const newNode = {
       name: key,
       status: getStatus(value1, value2),
-      oldValue: stringify(value1),
-      newValue: stringify(value2),
+      oldValue: value1,
+      newValue: value2,
       children: getChildren(value1, value2, makeAst),
     };
     return newNode;

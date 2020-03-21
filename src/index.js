@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import makeAst from './makeAst';
+import render from './render';
 
 const readFile = (filePath) => {
   const fullFilePath = path.resolve(process.cwd(), filePath);
@@ -18,5 +19,7 @@ export default (filePath1, filePath2) => {
 
   const ast = makeAst(parsedData1, parsedData2);
 
-  return ast;
+  const result = render(ast);
+  console.log(result);
+  return result;
 };
