@@ -9,3 +9,7 @@
 
 .ini diff:
 [![asciicast](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y.svg)](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y)
+
+
+plain:
+[![asciicast](https://asciinema.org/a/HeV0CWrDpvfNOaLEfYxbmz6JW.svg)](https://asciinema.org/a/HeV0CWrDpvfNOaLEfYxbmz6JW)
