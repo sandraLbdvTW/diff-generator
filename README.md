@@ -18,4 +18,10 @@ step 7 (render):
 
 
 step 8 (plain):
-[![asciicast](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9)](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9)
+[![asciicast](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9.svg)](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9)
+
+
+step 9 (json):
+[![asciicast](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg.svg)](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg)
+
+

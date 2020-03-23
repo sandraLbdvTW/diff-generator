@@ -7,10 +7,12 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 let result;
 let resultPlain;
+let resultJson;
 
 beforeEach(() => {
   result = readFile('result').trim();
   resultPlain = readFile('resultPlain').trim();
+  resultJson = readFile('resultJson').trim();
 });
 
 test('json gendiff', () => {
@@ -19,6 +21,7 @@ test('json gendiff', () => {
 
   expect(genDiff(before, after)).toEqual(result);
   expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
+  expect(genDiff(before, after, 'json')).toEqual(resultJson);
 });
 
 test('yml gendiff', () => {
@@ -27,14 +30,17 @@ test('yml gendiff', () => {
 
   expect(genDiff(before, after)).toEqual(result);
   expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
+  expect(genDiff(before, after, 'json')).toEqual(resultJson);
 });
 
 test('ini gendiff', () => {
   const before = getFixturePath('before.ini');
   const after = getFixturePath('after.ini');
+  const resultJsonForIni = readFile('resultJsonForIni');
 
   expect(genDiff(before, after)).toEqual(result);
   expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
+  expect(genDiff(before, after, 'json')).toEqual(resultJsonForIni);
 });
 
 test('errors', () => {

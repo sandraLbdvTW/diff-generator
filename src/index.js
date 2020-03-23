@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import makeAst from './makeAst';
-import { render, plain } from './formatters';
+import { render, plain, json } from './formatters';
 
 const readFile = (filePath) => {
   const fullFilePath = path.resolve(process.cwd(), filePath);
@@ -14,6 +14,8 @@ const formatAst = (format, ast) => {
   switch (format) {
     case 'plain':
       return plain(ast);
+    case 'json':
+      return json(ast);
     default:
       return render(ast);
   }
