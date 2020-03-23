@@ -15,26 +15,26 @@ const stringify = (value, nestingLvl) => {
 };
 
 const statusActions = {
-  deleted: (node, nestingLvl) => `  - ${node.name}: ${stringify(node.oldValue, nestingLvl)}`,
-  added: (node, nestingLvl) => `  + ${node.name}: ${stringify(node.newValue, nestingLvl)}`,
-  unmodified: (node, nestingLvl) => `    ${node.name}: ${stringify(node.oldValue, nestingLvl)}`,
+  deleted: (node, nestingLvl) => `  - ${node.name}: ${stringify(node.valueOld, nestingLvl)}`,
+  added: (node, nestingLvl) => `  + ${node.name}: ${stringify(node.valueNew, nestingLvl)}`,
+  unmodified: (node, nestingLvl) => `    ${node.name}: ${stringify(node.valueOld, nestingLvl)}`,
   modified: (node, nestingLvl, renderFunction) => {
     if (node.children.length === 0) {
-      return [`  - ${node.name}: ${stringify(node.oldValue, nestingLvl)}`,
-        `  + ${node.name}: ${stringify(node.newValue, nestingLvl)}`];
+      return [`  - ${node.name}: ${stringify(node.valueOld, nestingLvl)}`,
+        `  + ${node.name}: ${stringify(node.valueNew, nestingLvl)}`];
     }
     return `    ${node.name}: ${renderFunction(node.children, nestingLvl + 1)}`;
   },
 };
 
 
-const render = (data, nestingLvl = 0) => {
+const renderTree = (data, nestingLvl = 0) => {
   const indents = indent.repeat(nestingLvl);
 
-  const formatData = (node) => statusActions[node.status](node, nestingLvl, render);
+  const formatData = (node) => statusActions[node.status](node, nestingLvl, renderTree);
   const formattedData = data.map(formatData).flat().map((element) => `${indents}${element}`);
 
   return `{\n${formattedData.join('\n')}\n${indents}}`;
 };
 
-export default render;
+export default renderTree;

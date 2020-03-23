@@ -16,35 +16,36 @@ beforeEach(() => {
 });
 
 test('json gendiff', () => {
-  const before = getFixturePath('before.json');
-  const after = getFixturePath('after.json');
+  const configBefore = getFixturePath('before.json');
+  const configAfter = getFixturePath('after.json');
 
-  expect(genDiff(before, after)).toEqual(result);
-  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
-  expect(genDiff(before, after, 'json')).toEqual(resultJson);
+  expect(genDiff(configBefore, configAfter)).toEqual(result);
+  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
+  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJson);
 });
 
 test('yml gendiff', () => {
-  const before = getFixturePath('before.yml');
-  const after = getFixturePath('after.yml');
+  const configBefore = getFixturePath('before.yml');
+  const configAfter = getFixturePath('after.yml');
 
-  expect(genDiff(before, after)).toEqual(result);
-  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
-  expect(genDiff(before, after, 'json')).toEqual(resultJson);
+  expect(genDiff(configBefore, configAfter)).toEqual(result);
+  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
+  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJson);
 });
 
 test('ini gendiff', () => {
-  const before = getFixturePath('before.ini');
-  const after = getFixturePath('after.ini');
+  const configBefore = getFixturePath('before.ini');
+  const configAfter = getFixturePath('after.ini');
   const resultJsonForIni = readFile('resultJsonForIni');
 
-  expect(genDiff(before, after)).toEqual(result);
-  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
-  expect(genDiff(before, after, 'json')).toEqual(resultJsonForIni);
+  expect(genDiff(configBefore, configAfter)).toEqual(result);
+  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
+  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJsonForIni);
 });
 
 test('errors', () => {
   expect(() => genDiff('', '')).toThrow();
   expect(() => genDiff(getFixturePath('before.ini'), '')).toThrow();
+  expect(() => genDiff(getFixturePath('before.ini'))).toThrow();
   expect(() => genDiff('nonexistentFile', '')).toThrow();
 });

@@ -13,7 +13,7 @@ step 6 (.ini diff):
 [![asciicast](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y.svg)](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y)
 
 
-step 7 (render):
+step 7 (tree):
 [![asciicast](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb.svg)](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb)
 
 

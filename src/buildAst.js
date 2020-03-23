@@ -20,7 +20,7 @@ const getChildren = (value1, value2, fn) => {
   return [];
 };
 
-const makeAst = (data1, data2) => {
+const buildAst = (data1, data2) => {
   const keys1 = typeof data1 === 'object' ? Object.keys(data1) : [];
   const keys2 = typeof data2 === 'object' ? Object.keys(data2) : [];
   const keys = [...keys1, ...keys2];
@@ -32,13 +32,13 @@ const makeAst = (data1, data2) => {
     const newNode = {
       name: key,
       status: getStatus(data1, data2, key),
-      oldValue: value1,
-      newValue: value2,
-      children: getChildren(value1, value2, makeAst),
+      valueOld: value1,
+      valueNew: value2,
+      children: getChildren(value1, value2, buildAst),
     };
     return newNode;
   });
   return ast;
 };
 
-export default makeAst;
+export default buildAst;

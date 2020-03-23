@@ -1,7 +1,7 @@
-import render from './render.js';
-import plain from './plain.js';
-import json from './json.js';
+import renderTree from './renderTree.js';
+import renderPlain from './renderPlain.js';
+import renderJson from './renderJson.js';
 
 export {
-  render, plain, json,
+  renderTree, renderPlain, renderJson,
 };
