@@ -16,17 +16,17 @@ step 6 (.ini diff):
 [![asciicast](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y.svg)](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y)
 
 
-step 7 (tree):
+step 7 (tree renderer):
 
 [![asciicast](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb.svg)](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb)
 
 
-step 8 (plain):
+step 8 (plain renderer):
 
 [![asciicast](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9.svg)](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9)
 
 
-step 9 (json):
+step 9 (json renderer):
 
 [![asciicast](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg.svg)](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg)
 
