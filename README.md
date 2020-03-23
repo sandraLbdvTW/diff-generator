@@ -8,7 +8,7 @@ step 3 (.json diff):
 
 step 5 (.yml diff):
 
-[![asciicast](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt.svg)](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt)
+[![asciicast](https://asciinema.org/a/5MVry4B9VlJ8ju2AZrL5jtA11.svg)](https://asciinema.org/a/5MVry4B9VlJ8ju2AZrL5jtA11)
 
 
 step 6 (.ini diff):
