@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import makeAst from './makeAst';
-import render from './render';
+import { render, plain } from './formatters';
 
 const readFile = (filePath) => {
   const fullFilePath = path.resolve(process.cwd(), filePath);
@@ -10,7 +10,16 @@ const readFile = (filePath) => {
   return data;
 };
 
-export default (filePath1, filePath2) => {
+const formatAst = (format, ast) => {
+  switch (format) {
+    case 'plain':
+      return plain(ast);
+    default:
+      return render(ast);
+  }
+};
+
+export default (filePath1, filePath2, format) => {
   const data1 = readFile(filePath1);
   const data2 = readFile(filePath2);
 
@@ -19,7 +28,7 @@ export default (filePath1, filePath2) => {
 
   const ast = makeAst(parsedData1, parsedData2);
 
-  const result = render(ast);
+  const result = formatAst(format, ast);
   console.log(result);
   return result;
 };

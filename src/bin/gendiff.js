@@ -7,7 +7,8 @@ program
   .version('0.0.1')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<firstConfig> <secondConfig>')
-  .option('-f, --format [type]', 'output format')
-  .action((firstConfig, secondConfig) => genDiff(firstConfig, secondConfig));
-
-program.parse(process.argv);
+  .option('-f, --format [type]', 'output format', 'render')
+  .action(
+    (firstConfig, secondConfig, options) => genDiff(firstConfig, secondConfig, options.format),
+  )
+  .program.parse(process.argv);

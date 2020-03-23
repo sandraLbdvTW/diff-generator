@@ -1,11 +1,13 @@
-const getStatus = (value1, value2) => {
-  if (value1 === value2) {
+import { has } from 'lodash';
+
+const getStatus = (data1, data2, key) => {
+  if (data1[key] === data2[key]) {
     return 'unmodified';
   }
-  if (!value1) {
+  if (!has(data1, key)) {
     return 'added';
   }
-  if (!value2) {
+  if (!has(data2, key)) {
     return 'deleted';
   }
   return 'modified';
@@ -29,7 +31,7 @@ const makeAst = (data1, data2) => {
     const value2 = data2[key];
     const newNode = {
       name: key,
-      status: getStatus(value1, value2),
+      status: getStatus(data1, data2, key),
       oldValue: value1,
       newValue: value2,
       children: getChildren(value1, value2, makeAst),

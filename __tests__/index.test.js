@@ -6,9 +6,11 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 let result;
+let resultPlain;
 
 beforeEach(() => {
   result = readFile('result').trim();
+  resultPlain = readFile('resultPlain').trim();
 });
 
 test('json gendiff', () => {
@@ -16,6 +18,7 @@ test('json gendiff', () => {
   const after = getFixturePath('after.json');
 
   expect(genDiff(before, after)).toEqual(result);
+  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
 });
 
 test('yml gendiff', () => {
@@ -23,6 +26,7 @@ test('yml gendiff', () => {
   const after = getFixturePath('after.yml');
 
   expect(genDiff(before, after)).toEqual(result);
+  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
 });
 
 test('ini gendiff', () => {
@@ -30,6 +34,7 @@ test('ini gendiff', () => {
   const after = getFixturePath('after.ini');
 
   expect(genDiff(before, after)).toEqual(result);
+  expect(genDiff(before, after, 'plain')).toEqual(resultPlain);
 });
 
 test('errors', () => {

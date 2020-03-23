@@ -31,12 +31,10 @@ const statusActions = {
 const render = (data, nestingLvl = 0) => {
   const indents = indent.repeat(nestingLvl);
 
-  const func = (node) => statusActions[node.status](node, nestingLvl, render);
+  const formatData = (node) => statusActions[node.status](node, nestingLvl, render);
+  const formattedData = data.map(formatData).flat().map((element) => `${indents}${element}`);
 
-  const flattedData = data.map(func).flat();
-  const flattedFormattedData = flattedData.map((element) => `${indents}${element}`);
-
-  return `{\n${flattedFormattedData.join('\n')}\n${indents}}`;
+  return `{\n${formattedData.join('\n')}\n${indents}}`;
 };
 
 export default render;
