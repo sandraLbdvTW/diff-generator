@@ -2,26 +2,32 @@
 ![](https://github.com/sandraLbdv/frontend-project-lvl2/workflows/Node/badge.svg)
 
 step 3 (.json diff):
+
 [![asciicast](https://asciinema.org/a/jixCgqH462bh63Xm9AstXEaNm.svg)](https://asciinema.org/a/jixCgqH462bh63Xm9AstXEaNm)
 
 
 step 5 (.yml diff):
+
 [![asciicast](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt.svg)](https://asciinema.org/a/zDpU1IOteDJyfESoutJ6EsSBt)
 
 
 step 6 (.ini diff):
+
 [![asciicast](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y.svg)](https://asciinema.org/a/xkYrzqJ0o9n2o4Muqs90KxK3Y)
 
 
 step 7 (render):
+
 [![asciicast](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb.svg)](https://asciinema.org/a/e2vB4WX7Ao2upwvcU1RpGa6mb)
 
 
 step 8 (plain):
+
 [![asciicast](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9.svg)](https://asciinema.org/a/cwCIhUyuGHuMgV9oXz53YxXe9)
 
 
 step 9 (json):
+
 [![asciicast](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg.svg)](https://asciinema.org/a/ItR07eEdVQVTg5uUYu1z40TDg)
 
 
