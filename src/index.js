@@ -10,7 +10,7 @@ const readFile = (filePath) => {
   return data;
 };
 
-const formatAst = (format, ast) => {
+const renderAst = (format, ast) => {
   switch (format) {
     case 'plain':
       return renderPlain(ast);
@@ -30,7 +30,7 @@ export default (filePath1, filePath2, format) => {
 
   const ast = buildAst(parsedData1, parsedData2);
 
-  const result = formatAst(format, ast);
+  const result = renderAst(format, ast);
   console.log(result);
   return result;
 };
