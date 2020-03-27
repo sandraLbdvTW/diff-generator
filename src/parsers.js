@@ -1,11 +1,10 @@
-import path from 'path';
 import yaml from 'js-yaml';
 import ini from 'ini';
 
 const mapping = {
-  '.json': (data) => JSON.parse(data),
-  '.yml': (data) => yaml.safeLoad(data),
-  '.ini': (data) => ini.parse(data),
+  '.json': JSON.parse,
+  '.yml': yaml.safeLoad,
+  '.ini': ini.parse,
 };
 
-export default (filePath, data) => mapping[path.extname(filePath)](data);
+export default (fileType, data) => mapping[fileType](data);

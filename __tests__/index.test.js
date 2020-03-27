@@ -16,31 +16,31 @@ beforeEach(() => {
 });
 
 test('json gendiff', () => {
-  const configBefore = getFixturePath('before.json');
-  const configAfter = getFixturePath('after.json');
+  const firstFilePath = getFixturePath('before.json');
+  const secondFilePath = getFixturePath('after.json');
 
-  expect(genDiff(configBefore, configAfter)).toEqual(result);
-  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
-  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJson);
+  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
+  expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
+  expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJson);
 });
 
 test('yml gendiff', () => {
-  const configBefore = getFixturePath('before.yml');
-  const configAfter = getFixturePath('after.yml');
+  const firstFilePath = getFixturePath('before.yml');
+  const secondFilePath = getFixturePath('after.yml');
 
-  expect(genDiff(configBefore, configAfter)).toEqual(result);
-  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
-  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJson);
+  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
+  expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
+  expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJson);
 });
 
 test('ini gendiff', () => {
-  const configBefore = getFixturePath('before.ini');
-  const configAfter = getFixturePath('after.ini');
+  const firstFilePath = getFixturePath('before.ini');
+  const secondFilePath = getFixturePath('after.ini');
   const resultJsonForIni = readFile('resultJsonForIni');
 
-  expect(genDiff(configBefore, configAfter)).toEqual(result);
-  expect(genDiff(configBefore, configAfter, 'plain')).toEqual(resultPlain);
-  expect(genDiff(configBefore, configAfter, 'json')).toEqual(resultJsonForIni);
+  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
+  expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
+  expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJsonForIni);
 });
 
 test('errors', () => {

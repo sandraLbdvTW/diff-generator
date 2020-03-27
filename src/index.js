@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import buildAst from './buildAst';
-import { renderTree, renderPlain, renderJson } from './formatters';
+import render from './formatters';
 
 const readFile = (filePath) => {
   const fullFilePath = path.resolve(process.cwd(), filePath);
@@ -10,27 +10,16 @@ const readFile = (filePath) => {
   return data;
 };
 
-const render = (format, ast) => {
-  switch (format) {
-    case 'plain':
-      return renderPlain(ast);
-    case 'json':
-      return renderJson(ast);
-    default:
-      return renderTree(ast);
-  }
-};
 
 export default (filePath1, filePath2, format) => {
   const data1 = readFile(filePath1);
   const data2 = readFile(filePath2);
 
-  const parsedData1 = parse(filePath1, data1);
-  const parsedData2 = parse(filePath2, data2);
+  const parsedData1 = parse(path.extname(filePath1), data1);
+  const parsedData2 = parse(path.extname(filePath2), data2);
 
   const ast = buildAst(parsedData1, parsedData2);
 
   const result = render(format, ast);
-  console.log(result);
   return result;
 };
