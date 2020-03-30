@@ -8,7 +8,7 @@ const stringify = (value) => {
 const statusActions = {
   deleted: (node, fullName) => `Property ${fullName} was deleted`,
   added: (node, fullName) => `Property ${fullName} was added with value: ${stringify(node.valueNew)}`,
-  unmodified: () => '',
+  unmodified: () => null,
   modified: (node, fullName) => `Property ${fullName} was changed from ${stringify(node.valueOld)} to ${stringify(node.valueNew)}`,
 };
 
@@ -17,7 +17,7 @@ const renderPlain = (ast, acc = []) => {
     const { name, children, status } = node;
     const newFullName = [...fullName, name];
 
-    if (children.length === 0) {
+    if (node.status !== 'hasChildren') {
       return statusActions[status](node, newFullName.join('.'));
     }
     return renderPlain(children, newFullName);

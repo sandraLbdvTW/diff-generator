@@ -5,42 +5,19 @@ import genDiff from '..';
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-let result;
-let resultPlain;
-let resultJson;
+const resultTree = readFile('resultTree').trim();
+const resultPlain = readFile('resultPlain').trim();
+const resultJson = readFile('resultJson').trim();
 
-beforeEach(() => {
-  result = readFile('result').trim();
-  resultPlain = readFile('resultPlain').trim();
-  resultJson = readFile('resultJson').trim();
-});
+const files = [['before.json', 'after.json'], ['before.yml', 'after.yml'], ['before.ini', 'after.ini']];
 
-test('json gendiff', () => {
-  const firstFilePath = getFixturePath('before.json');
-  const secondFilePath = getFixturePath('after.json');
+test.each(files)('%s, %s', (first, second) => {
+  const firstFilePath = getFixturePath(first);
+  const secondFilePath = getFixturePath(second);
 
-  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
+  expect(genDiff(firstFilePath, secondFilePath)).toEqual(resultTree);
   expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
   expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJson);
-});
-
-test('yml gendiff', () => {
-  const firstFilePath = getFixturePath('before.yml');
-  const secondFilePath = getFixturePath('after.yml');
-
-  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
-  expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
-  expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJson);
-});
-
-test('ini gendiff', () => {
-  const firstFilePath = getFixturePath('before.ini');
-  const secondFilePath = getFixturePath('after.ini');
-  const resultJsonForIni = readFile('resultJsonForIni');
-
-  expect(genDiff(firstFilePath, secondFilePath)).toEqual(result);
-  expect(genDiff(firstFilePath, secondFilePath, 'plain')).toEqual(resultPlain);
-  expect(genDiff(firstFilePath, secondFilePath, 'json')).toEqual(resultJsonForIni);
 });
 
 test('errors', () => {
