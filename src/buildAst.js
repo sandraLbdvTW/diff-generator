@@ -8,9 +8,7 @@ const buildAst = (data1, data2) => {
       return {
         name: key,
         status: 'added',
-        valueOld: null,
         valueNew: data2[key],
-        children: null,
       };
     }
 
@@ -19,8 +17,6 @@ const buildAst = (data1, data2) => {
         name: key,
         status: 'deleted',
         valueOld: data1[key],
-        valueNew: null,
-        children: null,
       };
     }
 
@@ -30,7 +26,6 @@ const buildAst = (data1, data2) => {
         status: 'unmodified',
         valueOld: data1[key],
         valueNew: data2[key],
-        children: null,
       };
     }
 
@@ -40,15 +35,12 @@ const buildAst = (data1, data2) => {
         status: 'modified',
         valueOld: data1[key],
         valueNew: data2[key],
-        children: null,
       };
     }
 
     return {
       name: key,
       status: 'hasChildren',
-      valueOld: null,
-      valueNew: null,
       children: buildAst(data1[key], data2[key]),
     };
   });
